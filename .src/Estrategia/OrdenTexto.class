@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmp As New Texto
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("texto") Or valor = ("t") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmp = New Texto
+        comandotmp.datos = palabras
+        comandotmp.tipo = "dibujo"
+        Return comandotmp
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Dibuja un texto. Sintaxis: texto,[coordenada_x1],[coordenada_y1],[tamaño del texto],[texto]\n Ejemplo Uso: texto,50,15,10,Hola Mundo"
+
+End

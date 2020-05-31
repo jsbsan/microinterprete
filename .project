@@ -1,6 +1,7 @@
 # Gambas Project File 3.0
 Title=microinterprete
 Startup=FMain
+Icon=interprete50x50.png
 Version=0.0.7
 Component=gb.image
 Component=gb.gui

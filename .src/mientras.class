@@ -1,0 +1,29 @@
+' Gambas class file
+
+' Gambas class file -> while
+Inherits Comando
+
+Private expresion As String
+Private restolinea As String
+
+Public Sub ejecutar() ''mientras,[expresion],[comando]|[comano]|[comano]
+
+    Dim a As Integer
+
+    expresion = Me.datos[0] 'numero de veces que debe de repetir el bucle 'valor fijo por ahora
+
+    Me.datos.delete(0)
+
+    restolinea = Replace(Me.datos.join(","), "|", "\n")
+
+    While Eval(expresion, moduloComun.variables)
+        FMain.analiza(restolinea) 'llama por recursividad recursivo
+        ' FMain.analiza("print,\"Repite(" & Str$(a) & ")\"") 'sistema de debug del repite
+    Wend
+
+End
+
+Public Sub dibujar()
+    'no  hace nada ya que es del tipo bucle
+
+End

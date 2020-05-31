@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmp As New Mientras
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("mientras") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmp = New Mientras
+        comandotmp.datos = palabras
+        comandotmp.tipo = "bucle"
+        Return comandotmp
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Mientras sea verdad la expresion, haz los comandos siguientes. Sintaxis: mientras,[expresion],[comando]|[comando]|[comando]\n Ejemplo Uso: dimensiona,y,1\nmientras,y<10,print,y|linea,10+2*y,10,100,100|asigna,y,y+1- > dibuja una linea mientras que la expresion y<10 sea verdadera."
+
+End

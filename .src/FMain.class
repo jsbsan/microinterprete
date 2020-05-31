@@ -8,6 +8,7 @@ Public Sub Form_Open()
 
     Settings.Read(Me)
     ListBoxComandosDisponibles.List = SelectorEstrategias.listaComando()
+    Me.Title = "InterPrete-CAD " & "version " & Application.version & " Autor: JsbSan 2020"
 
 End
 
@@ -22,7 +23,7 @@ Public Sub ButtonEjecutar_Click()
     listaElementosDibujar = New Comando[]
     'leer el textarea y sacar las ordenes
 
-    codigo = TextArea1.text
+    codigo = TextAreaComandos.text
 
     analiza(codigo)
 
@@ -88,9 +89,9 @@ Public Sub ListBoxComandosDisponibles_DblClick()
 
     ComandoElegido = ListBoxComandosDisponibles.List[ListBoxComandosDisponibles.Index]
 
-    TextArea1.text &= ComandoElegido & ","
-    TextArea1.SetFocus()
-    TextArea1.Pos = Len(TextArea1.text)
+    TextAreaComandos.text &= ComandoElegido & ","
+    TextAreaComandos.SetFocus()
+    TextAreaComandos.Pos = Len(TextAreaComandos.text)
 
     TextAreaAyuda.text = SelectorEstrategias.ayuda(ComandoElegido)
 
@@ -99,5 +100,31 @@ End
 Public Sub Form_Close()
 
     Settings.Write(Me)
+
+End
+
+Public Sub URLLabel1_Click()
+
+    'Iconos diseñados por <a href="https://www.flaticon.es/autores/srip" title="srip">srip</a> from <a href="https://www.flaticon.es/" title="Flaticon"> www.flaticon.es</a>
+End
+
+Public Sub ButtonAbrir_Click()
+
+    If Dialog.OpenFile() Then
+        Return 'se cancelo la operacion
+    Else
+        TextAreaComandos.text = File.Load(Dialog.Path)
+    Endif
+
+End
+
+Public Sub ButtonGuardar_Click()
+
+    If Dialog.SaveFile() Then
+
+        Return 'se cancelo la operacion
+    Else
+        File.Save(Dialog.Path, TextAreaComandos.text)
+    Endif
 
 End

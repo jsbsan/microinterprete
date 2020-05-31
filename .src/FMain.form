@@ -2,17 +2,19 @@
 
 { Form Form
   MoveScaled(0,0,145,99)
+  Icon = Picture["interprete50x50.png"]
   { DrawingArea1 DrawingArea
     MoveScaled(1,1,127,61)
-    Background = &HFFD75F&
+    Background = &HFFEFBF&
   }
-  { TextArea1 TextArea
+  { TextAreaComandos TextArea
     MoveScaled(1,67,88,20)
     Wrap = True
   }
   { ButtonEjecutar Button
-    MoveScaled(25,62,10,5)
-    Text = ("Ejecuta")
+    MoveScaled(22,62,14,5)
+    Text = ("Ejecutar")
+    Picture = Picture["ejecutar.png"]
   }
   { TextAreaConsola TextArea
     MoveScaled(90,66,53,32)
@@ -40,5 +42,19 @@
   { Label3 Label
     MoveScaled(1,63,23,3)
     Text = ("Consola de Comandos")
+  }
+  { ButtonAbrir Button
+    MoveScaled(54,62,10,5)
+    Text = ("Abrir")
+    Picture = Picture["icon:/22/open"]
+  }
+  { ButtonGuardar Button
+    MoveScaled(66,62,12,5)
+    Text = ("Guardar")
+    Picture = Picture["icon:/22/save"]
+  }
+  { URLLabel1 URLLabel
+    MoveScaled(116,63,27,2)
+    Text = ("iconos por SRIP")
   }
 }

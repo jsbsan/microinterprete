@@ -1,0 +1,26 @@
+' Gambas class file
+
+Inherits Comando
+Private texto As String
+Private x1 As Integer
+Private y1 As Integer
+Private tamano As Integer
+
+Public Sub ejecutar() ''texto,[coordenadax],[coordenada y],[tamaño],[texto]
+
+    x1 = Eval(Me.datos[0], moduloComun.variables)
+    y1 = Eval(Me.datos[1], moduloComun.variables)
+    tamano = Eval(Me.datos[2], moduloComun.variables)
+    texto = Me.datos[3]
+
+End
+
+Public Sub dibujar()
+
+    Paint.MoveTo(x1, y1)
+    Paint.Font.name = "Sans" 'por defecto
+    Paint.Font.size = tamano
+    Paint.RichText(texto)
+    Paint.Stroke()
+
+End

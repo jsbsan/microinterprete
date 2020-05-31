@@ -3,6 +3,18 @@ Nuevas propiedades
 ---------------------
 color
 ancho linea
-texto
+
+texto-> ok
 
 tipos de letra/tamaño
+imagenes
+
+------------------------
+Programa
+------------------------
+guardar
+leer
+guarda imagen generada -> svg?¿ -> dxf
+while
+
+
