@@ -1,0 +1,34 @@
+' Gambas class file
+
+Inherits Comando
+
+Private nombrefuncion As String
+Private restolinea As String
+Private repite As Integer
+
+Public Sub ejecutar() ''usafunciona,[nombrefuncion],[valores de parametros separados por ;]
+
+    Dim a As Integer
+    Dim parametros As New String[]
+    Dim valorparametros As New String[]
+    Dim nombrefuncion As String
+
+    nombrefuncion = Me.datos[0] 'nombre de funcion
+
+    'ver los parametros de esa funciona
+
+    parametros = Split(ModuloComun.ParametrosFunciones[nombrefuncion], ";") 'lee los nombre de los parametros de la funcion
+    valorparametros = Split(Me.datos[1], ";")
+    'asignar valoreas a los parametros
+
+    ''TODO: si faltan valroes de los parametros, dar un error por consola
+
+    For a = 0 To parametros.count - 1
+        ModuloComun.variables[nombrefuncion & "_" & parametros[a]] = Eval(valorparametros[a], moduloComun.variables)
+    Next
+
+    restolinea = Replace(moduloComun.ContenidoFunciones[nombrefuncion], "|", "\n")
+
+    FMain.analiza(restolinea) 'llama por recursividad recursivo
+
+End

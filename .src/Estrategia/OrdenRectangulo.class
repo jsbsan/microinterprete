@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmp As New Rectangulo
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("rectangulo") Or valor = ("r") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmp = New Rectangulo
+        comandotmp.datos = palabras
+        comandotmp.tipo = "dibujo"
+        Return comandotmp
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Dibuja un rectangulo. Sintaxis: rectangulo,[coordenada_x1],[coordenada_y1],[coordenada_x2],[coordenada_y2]\n Ejemplo Uso: rectangulo,10,15,50,100 - > dibuja un rectangulo con una esquina en el coordenada(10,15) y la otra final coordenada (50,100)"
+
+End

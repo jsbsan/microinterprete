@@ -1,0 +1,40 @@
+' Gambas class file
+
+Inherits Comando
+
+Public Sub ejecutar() '' orden tipo: definefuncion,[nombre],[parametros;parametros],comandos|comandos|comandos
+
+    Dim nombrefuncion As String
+    Dim parametros As New String[]
+    Dim comandos As String
+    Dim ltmp As String
+
+    nombrefuncion = Me.datos[0]
+    parametros = Split(Me.datos[1], ";")
+
+    'añadir toda la linea de comandos...
+    Me.datos.Delete(0) 'al borrar el 1º elemento, el 2º se convierte en el 1º elemento
+    Me.datos.Delete(0)
+    comandos = Me.datos.Join(",")
+
+    'las variables de la linea de comandos deben de sustituirse por nombre de modulo_
+
+    For Each ltmp In parametros
+        comandos = Replace(comandos, ltmp, nombrefuncion & "_" & ltmp)
+    Next
+
+    moduloComun.ContenidoFunciones.Add(comandos, nombrefuncion)   'asigna al nombre de  la funcion, los comandos que tiene que realizar...
+    moduloComun.ParametrosFunciones.Add(parametros.Join(";"), nombrefuncion)
+    'tengo que crear variables con el nombre de la funcion delante...
+
+    For Each ltmp In parametros
+        moduloComun.variables.Add(0, nombrefuncion & "_" & ltmp) 'añado nombre de variables como nombrefuncion_variable
+    Next
+
+    moduloComun.variables.Add(0, nombrefuncion & "_retorno") 'variable que acumula el valor de retorno de la funcion
+
+End
+
+Public Sub dibujar()
+
+End

@@ -1,0 +1,22 @@
+' Gambas class file
+
+Inherits Comando
+
+Private x1 As Integer
+Private y1 As Integer
+Private radio As Integer
+
+Public Sub ejecutar() 'circulo,10,10,40
+
+    x1 = Eval(Me.datos[0], moduloComun.variables)
+    y1 = Eval(Me.datos[1], moduloComun.variables)
+    radio = Eval(Me.datos[2], moduloComun.variables)
+
+End
+
+Public Sub dibujar()
+
+    Paint.Arc(x1, y1, radio)
+    Paint.Stroke()
+
+End

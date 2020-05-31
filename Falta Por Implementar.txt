@@ -1,0 +1,13 @@
+---------------------
+Nuevas propiedades
+---------------------
+color
+ancho linea
+texto
+
+tipos de letra/tamaño
+-----------------
+Lenguaje en si:
+-----------------
+
+si,[operacion logica],[bloque1],[bloque2]

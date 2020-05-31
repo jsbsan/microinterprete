@@ -1,0 +1,5 @@
+' Gambas module file
+
+Public variables As New Collection
+Public ContenidoFunciones As New Collection 'aqui se pondran las ordenas de las funciones o bloques
+Public ParametrosFunciones As New Collection 'aqui se guardan el nombre de los parametros de las funciones

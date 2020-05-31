@@ -1,0 +1,40 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+
+Private comandotmpLinea As New DefineFuncion
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("definefuncion") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmpLinea = New DefineFuncion
+        comandotmpLinea.datos = palabras
+        comandotmpLinea.tipo = "interno"
+        Return comandotmpLinea
+    Endif
+
+End
+
+Public Sub ayuda() As String
+
+    'devuelve lo ayuda sobre el comando
+
+    Return "Define una funcion. Sintaxis: definefuncion,[nombre_funcion],[parametro1 ; parametro2],[comando]|[comando]\n Ejemplo Uso: definefuncion,doblerectangulo,x1;y1;x2;y2,rectangulo,x1,y1,x2,y2|rectangulo,x1*2,y1*2,x2*2,y2*3"
+
+End

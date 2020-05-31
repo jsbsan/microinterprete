@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmp As New Repite
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("repite") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmp = New Repite
+        comandotmp.datos = palabras
+        comandotmp.tipo = "bucle"
+        Return comandotmp
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Repite tantas veces como se indique una serie de comandos separador por barra vertical \"|\". Sintaxis: repite,[expresion],[comando]|[comando]|[comando]\n Ejemplo Uso: repite,10,linea,10+2*x,10,100,100|asigna,x,x+10- > dibuja 10 veces una linea que cambia la coordena del x1 en cada repeticion."
+
+End

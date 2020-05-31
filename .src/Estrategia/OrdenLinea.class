@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmpLinea As New Linea
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("linea") Or valor = ("l") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmpLinea = New Linea
+        comandotmpLinea.datos = palabras
+        comandotmpLinea.tipo = "dibujo"
+        Return comandotmpLinea
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Dibuja una linea. Sintaxis: linea,[coordenada_x1],[coordenada_y1],[coordenada_x2],[coordenada_y2]\n Ejemplo Uso: linea,10,15,50,100 - > dibuja una linea que se inicia en el coordenada(10,15) y termina en la coordenada (50,100)"
+
+End

@@ -1,0 +1,48 @@
+-------------------------------
+Bucle repite
+-------------------------------
+
+repite,[numero de veces],[comando]|[comando]|conmando
+
+La orden "repite" la lineas de comandos separadas por barra vertical tantas veces como se indique
+
+dimensiona,x,10
+repite,10,linea,10+2*x,10,100,100|asigna,x,x+10
+
+-------------------------------
+Variables:
+-------------------------------
+
+dimensiona,[nombrevariable],[valor inicial]
+
+Crea una variable con el nombre indicado y le asigna el valor inicial
+
+asigna,[nombrevariable],[expresion]
+
+Asigna a la variable (tiene que estar antes dimensionada), la expresion dada
+
+------------------------------
+Comando Print
+------------------------------
+
+print,"hola"
+
+escribe en la consola la palabra hola
+
+print,x*2
+
+escribe en la consola el valor de la operación
+
+-------------------
+Comandos de dibujo
+-------------------
+circulo o c
+circulo,[x_centro],[y_centro],[radio]
+
+			Dibuja un circulo
+
+linea,[x1],[y1],[x2],[y2]
+
+rectangulo,[x1],[y1],[x2],[y2]
+
+Se pertimiete poner expresiones en los valores (por ejemplo x+19)

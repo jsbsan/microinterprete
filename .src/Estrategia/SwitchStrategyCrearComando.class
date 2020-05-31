@@ -1,0 +1,98 @@
+' Gambas class file
+
+Private listaEstrategia As New InterfaceCrearComando[]
+
+Public Sub _new()
+    ''En el constructor indico que estrategia de construcción de comandos estan diponibles...
+    ''------------------------------------------
+    ''NOTE: Listado de Estrategias disponibles:
+    ''------------------------------------------
+    ''NOTE: Si hubieran mas estrategias se añadirian continuacion
+    '--- poner aqui nuevas estrategias... Dim XXXXXtmp as new EstrategiaXXXXX
+
+    Dim estrategiaOrdenLineaTmp As New OrdenLinea
+    Dim EstrategiaOrdenRectanguloTmp As New OrdenRectangulo
+    Dim estrategiaOrdenCirculoTmp As New OrdenCirculo
+    Dim estrategiaOrdenPrintTmp As New OrdenPrint
+    Dim estrategiaOrdenRepiteTmp As New OrdenRepite
+    Dim estrategiaOrdenAsignatmp As New OrdenAsigna
+    Dim estrategiaOrdenDimensionatmp As New OrdenDimensiona
+    Dim estrategiaOrdenDefineFunciontmp As New OrdenDefineFuncion
+    Dim estrategiaOrdenUsaFunciontmp As New OrdenUsaFuncion
+    '.---- añadir la estrategias a la lista de estrategias disponibles  estrategiaXXXXtmp.nombre=("XXXX")
+    estrategiaOrdenLineaTmp.nombre = ("linea") 'indico tambien el nombre del comando, que nos servirá en el método ListaComando()
+    estrategiaOrdenRectanguloTmp.nombre = ("rectangulo") 'indico tambien el nombre del comando, que nos servirá en el método ListaComando()
+    estrategiaOrdenCirculoTmp.nombre = ("circulo")
+    estrategiaOrdenPrintTmp.nombre = ("print")
+    estrategiaOrdenRepiteTmp.nombre = ("repite")
+    estrategiaOrdenAsignatmp.nombre = ("asigna")
+    estrategiaOrdenDimensionatmp.nombre = ("dimensiona")
+    estrategiaOrdenDefineFunciontmp.nombre = ("definefuncion")
+    estrategiaOrdenUsaFunciontmp.nombre = ("usafuncion")
+
+    'añado las distitas estrategias...add(XXXXXtmp)
+    add(estrategiaOrdenLineaTmp)
+    add(EstrategiaOrdenRectanguloTmp)
+    add(estrategiaOrdenCirculoTmp)
+    add(estrategiaOrdenPrintTmp)
+    add(estrategiaOrdenRepitetmp)
+    add(estrategiaOrdenAsignatmp)
+    add(estrategiaOrdenDimensionatmp)
+    add(estrategiaOrdenDefineFunciontmp)
+    add(estrategiaOrdenUsaFunciontmp)
+    '...
+
+End
+
+Public Function listaComando() As String[]
+    'Este comando devuelve automaticamente la lista de comandos que hay disponibles, por ejemplo es usado para rellenar el combobox del formulario
+
+    Dim est As InterfaceCrearComando
+    Dim ComandosReconocidos As New String[]
+
+    For Each est In listaEstrategia
+        ComandosReconocidos.Add(est.nombre)
+    Next
+    Return ComandosReconocidos
+
+End
+
+Public Sub operar(orden As String, datos As String) As Comando
+
+    Dim iCrearcomando As New InterfaceCrearComando
+
+    For Each iCrearcomando In listaEstrategia
+
+        If iCrearcomando.guard(orden) Then
+            Return iCrearcomando.crearComando(datos)
+        Endif
+
+    Next
+    'si llega aqui es que no ha encontrado el comando
+    Message.Info(("Error: Comando desconocido") & " (" & orden & ")")
+    Return Null
+
+End
+
+Public Sub add(estrategia As InterfaceCrearComando)
+
+    listaEstrategia.Add(estrategia)
+
+End
+
+Public Function ayuda(orden As String) As String
+
+    Dim iCrearcomando As New InterfaceCrearComando
+
+    For Each iCrearcomando In listaEstrategia
+
+        If iCrearcomando.guard(orden) Then
+            Return iCrearcomando.ayuda()
+        Endif
+
+    Next
+    'si llega aqui es que no ha encontrado el comando
+
+    Return "Error: Comando desconocido" & " (" & orden & ")"
+
+End

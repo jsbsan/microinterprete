@@ -1,0 +1,27 @@
+' Gambas class file
+
+Inherits Comando
+
+Private x1 As String
+
+Public Sub ejecutar()
+
+    x1 = Me.datos[0]
+
+End
+
+Public Sub consola() As String
+
+    Dim retorno As String
+
+    If InStr(x1, "\"") <> 0 Then
+        Return Replace(x1, "\"", "") & "\n"  'expresion con comilllas sera una cadena
+    Endif
+
+    Try retorno = Str$(Eval(x1, ModuloComun.variables)) & "\n"
+    If Error Then
+        retorno = "error al analizar la expresion:" & x1
+    Endif
+    Return retorno
+
+End

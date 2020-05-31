@@ -1,0 +1,103 @@
+' Gambas class file
+
+Private listaComando As Comando[] 'lista de comandos, de las reglas
+Private SelectorEstrategias As New SwitchStrategyCrearComando
+Private listaElementosDibujar As New Comando[]
+
+Public Sub Form_Open()
+
+    Settings.Read(Me)
+    ListBoxComandosDisponibles.List = SelectorEstrategias.listaComando()
+
+End
+
+Public Sub ButtonEjecutar_Click()
+
+    Dim codigo As String
+
+    TextAreaConsola.text = ""
+    'lista de todas las ordenes(de dibujo,y de instruciones bucle)
+    listaComando = New Comando[]
+
+    listaElementosDibujar = New Comando[]
+    'leer el textarea y sacar las ordenes
+
+    codigo = TextArea1.text
+
+    analiza(codigo)
+
+    DrawingArea1.Refresh()
+
+End
+
+Public Sub SimpleLinea(x1 As Integer, y1 As Integer, x2 As Integer, y2 As Integer)
+
+    Paint.MoveTo(x1, y1)
+    Paint.LineTo(x2, y2)
+
+End
+
+Public Sub DrawingArea1_Draw()
+
+    Dim ctmp As Comando
+
+    ' 'lista de comandos graficos a dibujar
+    For Each ctmp In listaElementosDibujar
+        ctmp.dibujar()
+    Next
+
+End
+
+Public Sub analiza(codigo As String)
+
+    Dim comandotmp As New Comando
+    Dim palabras As New String[]
+    Dim ltmp As String
+    Dim lineasDatos As String[]
+    Dim resto As String
+    Dim NombreOrden As String
+
+    lineasDatos = Split(codigo, "\n") 'todas las ordenes ocupan una sola linea
+
+    For Each ltmp In lineasDatos
+        palabras = Split(ltmp, ",")
+        If palabras.count <> 0 Then
+            NombreOrden = palabras[0]
+            palabras.Delete(0)
+            resto = ""
+            resto = palabras.Join(",")
+            comandotmp = New Comando
+            comandoTmp = SelectorEstrategias.operar(NombreOrden, resto)
+            If IsNull(comandotmp) Then
+                'error nomando desconocido
+            Else
+                comandotmp.ejecutar()
+
+                If comandotmp.tipo = "dibujo" Then listaElementosDibujar.add(comandotmp)
+                If comandotmp.tipo = "consola" Then TextAreaConsola.text &= comandotmp.consola()
+            Endif
+
+        Endif
+    Next
+
+End
+
+Public Sub ListBoxComandosDisponibles_DblClick()
+
+    Dim ComandoElegido As String
+
+    ComandoElegido = ListBoxComandosDisponibles.List[ListBoxComandosDisponibles.Index]
+
+    TextArea1.text &= ComandoElegido & ","
+    TextArea1.SetFocus()
+    TextArea1.Pos = Len(TextArea1.text)
+
+    TextAreaAyuda.text = SelectorEstrategias.ayuda(ComandoElegido)
+
+End
+
+Public Sub Form_Close()
+
+    Settings.Write(Me)
+
+End

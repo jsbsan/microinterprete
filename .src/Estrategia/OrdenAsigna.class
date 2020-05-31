@@ -1,0 +1,39 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmpLinea As New Asigna
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("asigna") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmpLinea = New Asigna
+        comandotmpLinea.datos = palabras
+        comandotmpLinea.tipo = "interno"
+        Return comandotmpLinea
+    Endif
+
+End
+
+Public Sub ayuda() As String
+
+    'devuelve lo ayuda sobre el comando
+
+    Return "Asigna valor a una variable previamente dimensionada. Sintaxis: asigna,[nombre_variable],[expresión]\n Ejemplo Uso: asigna,x,10*3 -> x valdria 30 "
+
+End

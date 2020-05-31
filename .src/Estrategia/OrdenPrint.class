@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmpLinea As New Printconsola
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("print") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmpLinea = New PrintConsola
+        comandotmpLinea.datos = palabras
+        comandotmpLinea.tipo = "consola"
+        Return comandotmpLinea
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Escribe en la salida de consola, un texto o un valor de una variable. Sintaxis: print,[texto entre comillas o expresion].\n Ejemplo Uso: print,\"hola mundo \" -> escribe en consola las palabras hola mundo. Otro ejemplo: print,x+2/y -> escribe en la consola el resultado de la expresion"
+
+End

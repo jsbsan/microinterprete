@@ -1,0 +1,25 @@
+' Gambas class file
+
+Inherits Comando
+
+Private x1 As Integer
+Private y1 As Integer
+Private x2 As Integer
+Private y2 As Integer
+
+Public Sub ejecutar() 'rectangulo,x1,y1,x2,y2
+
+    x1 = Eval(Me.datos[0], moduloComun.variables)
+    y1 = Eval(Me.datos[1], moduloComun.variables)
+    x2 = Eval(Me.datos[2], moduloComun.variables)
+    y2 = Eval(Me.datos[3], moduloComun.variables)
+
+End
+
+Public Sub dibujar()
+
+    Paint.Rectangle(x1, y1, x2, y2)
+
+    Paint.Stroke()
+
+End

@@ -1,0 +1,17 @@
+' Gambas class file
+
+Public datos As String[] 'para guardar cualquier tipo de datos
+
+Public tipo As String 'si es del tipo dibujo,tendra contenido en dibuja
+
+Public Sub ejecutar()
+
+End
+
+Public Sub dibujar()
+
+End
+
+Public Function consola() As String
+
+End

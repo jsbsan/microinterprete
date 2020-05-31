@@ -1,0 +1,17 @@
+' Gambas class file
+
+Inherits Comando
+
+Public Sub ejecutar() '' orden tipo: dimensiona,x,10 -> x=10
+
+    If Me.datos.count = 1 Then
+        moduloComun.variables.Add(0, Me.datos[0])    'si no indico nada, el valor es 0
+    Else
+        moduloComun.variables.Add(Eval(Me.datos[1], moduloComun.variables), Me.datos[0])
+    Endif
+
+End
+
+Public Sub dibujar()
+
+End

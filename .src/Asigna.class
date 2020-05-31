@@ -1,0 +1,13 @@
+' Gambas class file
+
+Inherits Comando
+
+Public Sub ejecutar() '' orden tipo: asigna,x,10*3 -> x valdria 30
+
+    ModuloComun.variables[Me.datos[0]] = Eval(Me.datos[1], moduloComun.variables)
+
+End
+
+Public Sub dibujar()
+
+End

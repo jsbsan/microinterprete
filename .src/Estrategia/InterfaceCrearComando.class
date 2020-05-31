@@ -1,0 +1,30 @@
+' Gambas class file
+
+Public Sub crearComando(datos As String) As Comando
+
+End
+
+Public Sub guard(valor As String) As Boolean
+
+End
+
+Property nombre As String
+Private hnombre As String
+
+Private Function nombre_Read() As String
+
+    Return hnombre
+
+End
+
+Private Sub nombre_Write(Value As String)
+
+    hnombre = Value
+
+End
+
+Public Sub ayuda() As String
+
+    'devuelve lo ayuda sobre el comando
+
+End

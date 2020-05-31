@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmpLinea As New Circulo
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("circulo") Or valor = ("c") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmpLinea = New Circulo
+        comandotmpLinea.datos = palabras
+        comandotmpLinea.tipo = "dibujo"
+        Return comandotmpLinea
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Dibuja un circulo. Sintaxis: circulo,[coordenada_x],[coordenada_y],[radio]\n Ejemplo Uso: circulo, 100, 50, 25 - > dibuja un circulo en las coordenadas(100, 50)de radio 25"
+
+End
