@@ -1,7 +1,7 @@
 ' Gambas class file
 
 Inherits InterfaceCrearComando
-Private comandotmpLinea As New Printconsola
+Private comandotmp As New Printconsola
 
 Public Sub guard(valor As String) As Boolean
 
@@ -22,10 +22,10 @@ Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x
     If palabras.count = 0 Then
         Return Null
     Else
-        comandotmpLinea = New PrintConsola
-        comandotmpLinea.datos = palabras
-        comandotmpLinea.tipo = "consola"
-        Return comandotmpLinea
+        comandotmp = New PrintConsola
+        comandotmp.datos = palabras
+        comandotmp.tipo = "consola"
+        Return comandotmp
     Endif
 
 End

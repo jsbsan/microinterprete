@@ -1,7 +1,7 @@
 ' Gambas class file
 
 Inherits InterfaceCrearComando
-Private comandotmpLinea As New Circulo
+Private comandotmp As New Circulo
 
 Public Sub guard(valor As String) As Boolean
 
@@ -22,10 +22,10 @@ Public Sub crearComando(linea As String) As Comando
     If palabras.count = 0 Then
         Return Null
     Else
-        comandotmpLinea = New Circulo
-        comandotmpLinea.datos = palabras
-        comandotmpLinea.tipo = "dibujo"
-        Return comandotmpLinea
+        comandotmp = New Circulo
+        comandotmp.datos = palabras
+        comandotmp.tipo = "dibujo"
+        Return comandotmp
     Endif
 
 End

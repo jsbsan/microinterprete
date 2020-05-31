@@ -1,7 +1,7 @@
 ' Gambas class file
 
 Inherits InterfaceCrearComando
-Private comandotmpLinea As New UsaFuncion
+Private comandotmp As New UsaFuncion
 
 Public Sub guard(valor As String) As Boolean
 
@@ -22,10 +22,10 @@ Public Sub crearComando(linea As String) As Comando
     If palabras.count = 0 Then
         Return Null
     Else
-        comandotmpLinea = New UsaFuncion
-        comandotmpLinea.datos = palabras
-        comandotmpLinea.tipo = "interno"
-        Return comandotmpLinea
+        comandotmp = New UsaFuncion
+        comandotmp.datos = palabras
+        comandotmp.tipo = "interno"
+        Return comandotmp
     Endif
 
 End

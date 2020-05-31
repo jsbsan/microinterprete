@@ -2,7 +2,7 @@
 
 Inherits InterfaceCrearComando
 
-Private comandotmpLinea As New DefineFuncion
+Private comandotmp As New DefineFuncion
 
 Public Sub guard(valor As String) As Boolean
 
@@ -23,10 +23,10 @@ Public Sub crearComando(linea As String) As Comando
     If palabras.count = 0 Then
         Return Null
     Else
-        comandotmpLinea = New DefineFuncion
-        comandotmpLinea.datos = palabras
-        comandotmpLinea.tipo = "interno"
-        Return comandotmpLinea
+        comandotmp = New DefineFuncion
+        comandotmp.datos = palabras
+        comandotmp.tipo = "interno"
+        Return comandotmp
     Endif
 
 End

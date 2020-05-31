@@ -1,0 +1,42 @@
+' Gambas class file
+
+Inherits Comando
+
+Public Sub ejecutar() ''si,[expresion],comandosV1|comandosV2|comandosV3@comandosF1|comandosF2|comandosF3
+
+    Dim expresion As String
+    Dim comandosVerdad As String
+    Dim comandosFalso As String
+    Dim restolineaFalso As String
+    Dim restolineaVerdad As String
+    Dim comandos As String
+
+    expresion = Me.datos[0]
+
+    Me.datos.delete(0)
+
+    comandos = Me.datos.join(",")
+
+    comandosVerdad = Mid$(comandos, 1, InStr(comandos, "@") - 1)
+
+    comandosFalso = Mid$(comandos, InStr(comandos, "@") + 1, Len(comandos))
+
+    restolineaVerdad = Replace(comandosVerdad, "|", "\n")
+    restolineaFalso = Replace(comandosFalso, "|", "\n")
+
+    If Eval(expresion) Then
+        FMain.analiza(restolineaVerdad) 'llama por recursividad recursivo
+    Else
+        FMain.analiza(restolineaFalso) 'llama por recursividad recursivo
+
+    Endif
+
+End
+
+Public Sub dibujar()
+
+End
+
+Public Function consola() As String
+
+End

@@ -1,11 +1,11 @@
 ' Gambas class file
 
 Inherits InterfaceCrearComando
-Private comandotmp As New Dimensiona
+Private comandotmp As New Si
 
 Public Sub guard(valor As String) As Boolean
 
-    If valor = ("dimensiona") Then
+    If valor = ("si") Then
         Return True
     Else
         Return False
@@ -22,7 +22,7 @@ Public Sub crearComando(linea As String) As Comando
     If palabras.count = 0 Then
         Return Null
     Else
-        comandotmp = New Dimensiona
+        comandotmp = New Si
         comandotmp.datos = palabras
         comandotmp.tipo = "interno"
         Return comandotmp
@@ -34,6 +34,6 @@ Public Sub ayuda() As String
 
     'devuelve lo ayuda sobre el comando
 
-    Return "Crea una variable. Sintaxis: dimensiona,[nombre_variable]\n Ejemplo Uso: adimensiona,x,10  -> crea una variable llamada x y le asigna un valor inicial de 10"
+    Return "Evalua una expresion, si es verdad ejecuta el primer grupo de comandos y si es falso ejecuta el segundo grupo de comandos (estan grupos de comandos se separan por el caracter @). Sintaxis:si,[expresion],comandosV1|comandosV2|comandosV3@comandosF1|comandosF2|comandosF3\nEjemplo: si,(2<3),print,\"verdadero\"|print,\"por segunda vez verdadero\"@print,\"falso\"|print,\"por segunda vez es falso\""
 
 End
