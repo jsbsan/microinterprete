@@ -106,3 +106,18 @@ Public Function ayuda(orden As String) As String
     Return "Error: Comando desconocido" & " (" & orden & ")"
 
 End
+
+Public Function tutorial() As String
+
+    Dim iCrearcomando As New InterfaceCrearComando
+    Dim tutorial As String
+
+    For Each iCrearcomando In listaEstrategia
+
+        tutorial &= "**********************\n" & iCrearcomando.nombre & "\n" & "**********************\n" & iCrearcomando.ayuda() & "\n" & "\n"
+
+    Next
+
+    Return tutorial
+
+End

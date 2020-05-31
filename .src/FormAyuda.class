@@ -1,0 +1,16 @@
+' Gambas class file
+
+Public contenido As String
+
+Public Sub Form_Open()
+
+    Settings.Read(Me)
+    TextAreaContenido.text = "---------------------------------------\nAYUDA\n---------------------------------------\n" & contenido
+
+End
+
+Public Sub Form_Close()
+
+    Settings.Write(Me)
+
+End

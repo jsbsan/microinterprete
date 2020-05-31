@@ -13,6 +13,7 @@
   }
   { ButtonEjecutar Button
     MoveScaled(22,62,14,5)
+    ToolTip = ("corre la lista de comandos introducidas")
     Text = ("Ejecutar")
     Picture = Picture["ejecutar.png"]
   }
@@ -50,11 +51,21 @@
   }
   { ButtonGuardar Button
     MoveScaled(66,62,12,5)
+    ToolTip = ("guardar lista de comandos escritor")
     Text = ("Guardar")
     Picture = Picture["icon:/22/save"]
   }
   { URLLabel1 URLLabel
     MoveScaled(116,63,27,2)
     Text = ("iconos por SRIP")
+  }
+  { ButtonTutorial Button
+    MoveScaled(84,62,5,5)
+    ToolTip = ("ayuda")
+    Picture = Picture["icon:/22/help"]
+  }
+  { ButtonRecuperaBak Button
+    MoveScaled(38,63,15,3)
+    Text = ("recuperacion .bak")
   }
 }

@@ -25,6 +25,9 @@ Public Sub ButtonEjecutar_Click()
 
     codigo = TextAreaComandos.text
 
+    'antes de ejecutar guarda lo que va a ejecutar
+    file.Save("/tmp/codigo.bak", codigo)
+
     analiza(codigo)
 
     DrawingArea1.Refresh()
@@ -126,5 +129,18 @@ Public Sub ButtonGuardar_Click()
     Else
         File.Save(Dialog.Path, TextAreaComandos.text)
     Endif
+
+End
+
+Public Sub ButtonTutorial_Click()
+
+    formAyuda.contenido = SelectorEstrategias.tutorial()
+    formAyuda.show()
+
+End
+
+Public Sub ButtonRecuperaBak_Click()
+
+    TextAreaComandos.text = File.Load("/tmp/codigo.bak")
 
 End

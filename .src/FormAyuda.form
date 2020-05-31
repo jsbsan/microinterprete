@@ -1,0 +1,11 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,132,85)
+  Arrangement = Arrange.Fill
+  { TextAreaContenido TextArea
+    MoveScaled(1,1,113,79)
+    ReadOnly = True
+    Wrap = True
+  }
+}

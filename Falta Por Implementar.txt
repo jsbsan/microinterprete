@@ -12,9 +12,12 @@ imagenes
 ------------------------
 Programa
 ------------------------
-guardar
-leer
-guarda imagen generada -> svg?¿ -> dxf
-while
+while ->ok
+guardar ->ok
+leer ->ok
+sistema de recuperacion de lo ultimo ejecutado -> ok
 
+
+guarda imagen generada -> svg?¿ -> dxf
+gestion de errores: falta de parametros, etc...
 
