@@ -33,6 +33,9 @@ Public Sub ejecutar() '' orden tipo: definefuncion,[nombre],[parametros;parametr
 
     moduloComun.variables.Add(0, nombrefuncion & "_retorno") 'variable que acumula el valor de retorno de la funcion
 
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
 End
 
 Public Sub dibujar()

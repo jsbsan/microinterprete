@@ -144,3 +144,15 @@ Public Sub ButtonRecuperaBak_Click()
     TextAreaComandos.text = File.Load("/tmp/codigo.bak")
 
 End
+
+Public Sub DrawingArea1_MouseMove()
+
+    LabelCoordenadas.Text = "(" & Mouse.x & "," & Mouse.y & ")"
+
+End
+
+Public Sub DrawingArea1_MouseDown()
+
+    LabelCoordenadas.Text = "(" & Mouse.x & "," & Mouse.y & ")"
+
+End

@@ -31,4 +31,7 @@ Public Sub ejecutar() ''usafunciona,[nombrefuncion],[valores de parametros separ
 
     FMain.analiza(restolinea) 'llama por recursividad recursivo
 
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
 End

@@ -10,6 +10,9 @@ Public Sub ejecutar() '' orden tipo: dimensiona,x,10 -> x=10
         moduloComun.variables.Add(Eval(Me.datos[1], moduloComun.variables), Me.datos[0])
     Endif
 
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
 End
 
 Public Sub dibujar()

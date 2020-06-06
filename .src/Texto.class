@@ -13,6 +13,9 @@ Public Sub ejecutar() ''texto,[coordenadax],[coordenada y],[tamaño],[texto]
     tamano = Eval(Me.datos[2], moduloComun.variables)
     texto = Me.datos[3]
 
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
 End
 
 Public Sub dibujar()
@@ -22,5 +25,8 @@ Public Sub dibujar()
     Paint.Font.size = tamano
     Paint.RichText(texto)
     Paint.Stroke()
+
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
 
 End

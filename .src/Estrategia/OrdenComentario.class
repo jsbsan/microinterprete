@@ -1,0 +1,29 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmp As New Comentario
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("comentario") Or Mid$(valor, 1, 1) = "#" Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    comandotmp = New Comentario
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Comentario (o rem o #) para explicar algo del programa \n Ejemplo Uso: #no ejecutar nada....colorbrocha,rojo "
+
+End

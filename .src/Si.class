@@ -31,6 +31,9 @@ Public Sub ejecutar() ''si,[expresion],comandosV1|comandosV2|comandosV3@comandos
 
     Endif
 
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
 End
 
 Public Sub dibujar()

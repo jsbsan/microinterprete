@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmp As New Colorbrocha
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("colorbrocha") Or valor = ("cb") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando ''la linea de datos tendra x1,y1,x2,y2
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmp = New ColorBrocha
+        comandotmp.datos = palabras
+        comandotmp.tipo = "dibujo"
+        Return comandotmp
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Cambia el color de la brocha. Sintaxis: colorbrocha,[nombre_del_color]  (colores admitidos: azul, rojo, cyan, negro, naranja, rosa) \n Ejemplo Uso: colorbrocha,rojo "
+
+End

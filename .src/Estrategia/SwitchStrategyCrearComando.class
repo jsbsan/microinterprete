@@ -22,6 +22,8 @@ Public Sub _new()
     Dim estrategiaOrdenSitmp As New OrdenSi
     Dim estrategiaOrdenTextoTmp As New OrdenTexto
     Dim estrategiaOrdenMientrastmp As New OrdenMientras
+    Dim estrategiaOrdenColorBrochaTmp As New OrdenColorBrocha
+    Dim estrategiaOrdenComentariotmp As New OrdenComentario
 
     '.---- añadir la estrategias a la lista de estrategias disponibles  estrategiaXXXXtmp.nombre=("XXXX")
     estrategiaOrdenLineaTmp.nombre = ("linea") 'indico tambien el nombre del comando, que nos servirá en el método ListaComando()
@@ -29,6 +31,7 @@ Public Sub _new()
     estrategiaOrdenCirculoTmp.nombre = ("circulo")
     estrategiaOrdenTextoTmp.nombre = ("texto")
     estrategiaOrdenPrintTmp.nombre = ("print")
+    estrategiaOrdenColorBrochaTmp.nombre = ("colorbrocha")
     estrategiaOrdenRepiteTmp.nombre = ("repite")
     estrategiaOrdenMientrastmp.nombre = ("mientras")
     estrategiaOrdenAsignatmp.nombre = ("asigna")
@@ -36,6 +39,7 @@ Public Sub _new()
     estrategiaOrdenDefineFunciontmp.nombre = ("definefuncion")
     estrategiaOrdenUsaFunciontmp.nombre = ("usafuncion")
     estrategiaOrdenSitmp.nombre = ("si")
+    estrategiaOrdenComentariotmp.nombre = ("#")
 
     'añado las distitas estrategias...add(XXXXXtmp)
     add(estrategiaOrdenLineaTmp)
@@ -43,6 +47,7 @@ Public Sub _new()
     add(estrategiaOrdenCirculoTmp)
     add(estrategiaOrdenTextoTmp)
     add(estrategiaOrdenPrintTmp)
+    add(estrategiaOrdenColorBrochaTmp)
     add(estrategiaOrdenRepitetmp)
     add(estrategiaOrdenMientrastmp)
     add(estrategiaOrdenAsignatmp)
@@ -50,6 +55,7 @@ Public Sub _new()
     add(estrategiaOrdenDefineFunciontmp)
     add(estrategiaOrdenUsaFunciontmp)
     add(estrategiaOrdenSitmp)
+    add(estrategiaOrdenComentariotmp)
     '...
 
 End

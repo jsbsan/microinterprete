@@ -1,71 +1,87 @@
 # Gambas Form File 3.0
 
 { Form Form
-  MoveScaled(0,0,145,99)
+  MoveScaled(0,0,145,101)
   Icon = Picture["interprete50x50.png"]
-  { DrawingArea1 DrawingArea
-    MoveScaled(1,1,127,61)
-    Background = &HFFEFBF&
+  Arrangement = Arrange.Vertical
+  { HBox1 HBox
+    MoveScaled(3,-1,125,63)
+    Expand = True
+    Margin = True
+    { VBox1 VBox
+      MoveScaled(6,3,16,57)
+      { Label1 Label
+        MoveScaled(1,0,12,3)
+        Text = ("Comandos")
+      }
+      { ListBoxComandosDisponibles ListBox
+        MoveScaled(0,3,14,50)
+        Background = &H1FC7FF&
+      }
+      { LabelCoordenadas Label
+        MoveScaled(2,54,12,3)
+      }
+    }
+    { DrawingArea1 DrawingArea
+      MoveScaled(36,9,73,35)
+      Background = &HFFEFBF&
+      Expand = True
+    }
   }
-  { TextAreaComandos TextArea
-    MoveScaled(1,67,88,20)
-    Wrap = True
-  }
-  { ButtonEjecutar Button
-    MoveScaled(22,62,14,5)
-    ToolTip = ("corre la lista de comandos introducidas")
-    Text = ("Ejecutar")
-    Picture = Picture["ejecutar.png"]
-  }
-  { TextAreaConsola TextArea
-    MoveScaled(90,66,53,32)
-    Background = &HC0C0C0&
-    Wrap = True
-  }
-  { ListBoxComandosDisponibles ListBox
-    MoveScaled(129,3,14,59)
-    Background = &H1FC7FF&
-  }
-  { Label1 Label
-    MoveScaled(130,0,12,3)
-    Text = ("Comandos")
-  }
-  { TextAreaAyuda TextArea
-    MoveScaled(1,87,88,11)
-    Background = Color.Background
-    ReadOnly = True
-    Wrap = True
-  }
-  { Label2 Label
-    MoveScaled(91,63,19,3)
-    Text = ("Salida de Consola")
-  }
-  { Label3 Label
-    MoveScaled(1,63,23,3)
-    Text = ("Consola de Comandos")
-  }
-  { ButtonAbrir Button
-    MoveScaled(54,62,10,5)
-    Text = ("Abrir")
-    Picture = Picture["icon:/22/open"]
-  }
-  { ButtonGuardar Button
-    MoveScaled(66,62,12,5)
-    ToolTip = ("guardar lista de comandos escritor")
-    Text = ("Guardar")
-    Picture = Picture["icon:/22/save"]
-  }
-  { URLLabel1 URLLabel
-    MoveScaled(116,63,27,2)
-    Text = ("iconos por SRIP")
-  }
-  { ButtonTutorial Button
-    MoveScaled(84,62,5,5)
-    ToolTip = ("ayuda")
-    Picture = Picture["icon:/22/help"]
-  }
-  { ButtonRecuperaBak Button
-    MoveScaled(38,63,15,3)
-    Text = ("recuperacion .bak")
+  { Panel1 Panel
+    MoveScaled(1,63,144,38)
+    { ButtonRecuperaBak Button
+      MoveScaled(36,1,16,3)
+      Text = ("recuperacion .bak")
+    }
+    { ButtonTutorial Button
+      MoveScaled(83,0,5,5)
+      ToolTip = ("ayuda")
+      Picture = Picture["icon:/22/help"]
+    }
+    { URLLabel1 URLLabel
+      MoveScaled(115,1,27,2)
+      Text = ("iconos por SRIP")
+    }
+    { ButtonGuardar Button
+      MoveScaled(65,0,12,5)
+      ToolTip = ("guardar lista de comandos escritor")
+      Text = ("Guardar")
+      Picture = Picture["icon:/22/save"]
+    }
+    { ButtonAbrir Button
+      MoveScaled(53,0,10,5)
+      Text = ("Abrir")
+      Picture = Picture["icon:/22/open"]
+    }
+    { Label3 Label
+      MoveScaled(0,1,23,3)
+      Text = ("Consola de Comandos")
+    }
+    { Label2 Label
+      MoveScaled(90,1,19,3)
+      Text = ("Salida de Consola")
+    }
+    { TextAreaAyuda TextArea
+      MoveScaled(0,25,88,11)
+      Background = Color.Background
+      ReadOnly = True
+      Wrap = True
+    }
+    { TextAreaConsola TextArea
+      MoveScaled(89,4,53,32)
+      Background = &HC0C0C0&
+      Wrap = True
+    }
+    { ButtonEjecutar Button
+      MoveScaled(21,0,14,5)
+      ToolTip = ("corre la lista de comandos introducidas")
+      Text = ("Ejecutar")
+      Picture = Picture["ejecutar.png"]
+    }
+    { TextAreaComandos TextArea
+      MoveScaled(0,5,88,20)
+      Wrap = True
+    }
   }
 }

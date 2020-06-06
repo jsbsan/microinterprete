@@ -21,6 +21,9 @@ Public Sub ejecutar() ''repite,10,[comando]|[comano]|[comano]
         ' FMain.analiza("print,\"Repite(" & Str$(a) & ")\"") 'sistema de debug del repite
     Next
 
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
 End
 
 Public Sub dibujar()

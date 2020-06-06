@@ -12,6 +12,9 @@ Public Sub ejecutar() 'circulo,10,10,40
     y1 = Eval(Me.datos[1], moduloComun.variables)
     radio = Eval(Me.datos[2], moduloComun.variables)
 
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
 End
 
 Public Sub dibujar()

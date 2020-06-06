@@ -1,13 +1,15 @@
 ---------------------
 Nuevas propiedades
 ---------------------
-color
-ancho linea
-
+color ->ok
 texto-> ok
+tamaño letra ->ok
 
-tipos de letra/tamaño
+tipos de letra
 imagenes
+ancho linea
+escala
+rotar
 
 ------------------------
 Programa
@@ -17,7 +19,10 @@ guardar ->ok
 leer ->ok
 sistema de recuperacion de lo ultimo ejecutado -> ok
 
-
 guarda imagen generada -> svg?¿ -> dxf
-gestion de errores: falta de parametros, etc...
-
+gestion de errores: falta de parametros, etc... -> a medias
+rem #-> para comentarios #?
+input (pedir valor al usuario)
+---------------------------
+comprimir directorios
+SHELL "cd /ruta/que/sea ;tar czvf paquete.tgz directorio"

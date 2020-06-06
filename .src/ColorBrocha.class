@@ -1,0 +1,39 @@
+' Gambas class file
+
+Inherits Comando
+
+Private textoColor As String
+
+Private colorelegido As Integer
+
+Private listaColores As String[] = [("azul"), ("rojo"), ("cyan"), ("negro"), ("naranja"), ("rosa"), ("verde")]
+Private listaEquivalente As Integer[] = [Color.blue, Color.red, Color.cyan, Color.black, Color.orange, Color.pink, Color.green]
+
+Public Sub ejecutar() ''texto,[coordenadax],[coordenada y],[tamaño],[texto]
+
+    Dim textocolorTMP As String
+    Dim contador As Integer
+
+    textoColor = Lower(Me.datos[0])
+    contador = -1
+
+    For Each textocolorTMP In listaColores
+        contador += 1
+        If textoColor = textocolorTMP Then
+            colorelegido = listaEquivalente[contador]
+        Endif
+    Next
+
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
+End
+
+Public Sub dibujar()
+
+    Paint.brush = Paint.Color(colorelegido)
+
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
+End

@@ -1,0 +1,9 @@
+' Gambas class file
+
+Inherits Comando
+
+Public Sub ejecutar() 'rem,comentario,#
+
+    'no hacer nada con el resto de linea
+
+End

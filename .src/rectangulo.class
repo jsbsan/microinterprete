@@ -11,8 +11,11 @@ Public Sub ejecutar() 'rectangulo,x1,y1,x2,y2
 
     x1 = Eval(Me.datos[0], moduloComun.variables)
     y1 = Eval(Me.datos[1], moduloComun.variables)
-    x2 = Eval(Me.datos[2], moduloComun.variables)
-    y2 = Eval(Me.datos[3], moduloComun.variables)
+    x2 = Eval(Me.datos[2], moduloComun.variables) - x1
+    y2 = Eval(Me.datos[3], moduloComun.variables) - y1
+
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
 
 End
 
@@ -21,5 +24,8 @@ Public Sub dibujar()
     Paint.Rectangle(x1, y1, x2, y2)
 
     Paint.Stroke()
+
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
 
 End
