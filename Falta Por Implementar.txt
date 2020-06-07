@@ -10,6 +10,7 @@ imagenes
 ancho linea
 escala
 rotar
+scp 'sistema de coordenadas
 
 ------------------------
 Programa
@@ -18,10 +19,11 @@ while ->ok
 guardar ->ok
 leer ->ok
 sistema de recuperacion de lo ultimo ejecutado -> ok
+rem #-> para comentarios # ok
+gestion de errores: falta de parametros, etc... -> a medias
+
 
 guarda imagen generada -> svg?¿ -> dxf
-gestion de errores: falta de parametros, etc... -> a medias
-rem #-> para comentarios #?
 input (pedir valor al usuario)
 ---------------------------
 comprimir directorios

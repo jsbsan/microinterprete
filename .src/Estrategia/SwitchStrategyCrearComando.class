@@ -76,17 +76,33 @@ End
 Public Sub operar(orden As String, datos As String) As Comando
 
     Dim iCrearcomando As New InterfaceCrearComando
+    Dim ordensimilar As String
 
-    For Each iCrearcomando In listaEstrategia
+    If Mid$(orden, 1, 1) = "#" Then
+        ordensimilar = "OrdenComentario"
+    Else
+        ordensimilar = "Orden" & Upper$(Mid$(orden, 1, 1)) & Right(orden, Len(orden) - 1)
+    Endif
 
-        If iCrearcomando.guard(orden) Then
-            Return iCrearcomando.crearComando(datos)
-        Endif
+    Try iCrearcomando = object.new(ordensimilar) 'creo un objeto de la clase
 
-    Next
-    'si llega aqui es que no ha encontrado el comando
-    Message.Info(("Error: Comando desconocido") & " (" & orden & ")")
-    Return Null
+    If Error Then
+        Message.Info(("Error: Comando desconocido") & " (" & orden & ")")
+        Return Null
+    Else
+        Return iCrearcomando.crearComando(datos)
+    Endif
+
+    ' For Each iCrearcomando In listaEstrategia
+    '
+    '     If iCrearcomando.guard(orden) Then
+    '         Return iCrearcomando.crearComando(datos)
+    '     Endif
+    '
+    ' Next
+    ' 'si llega aqui es que no ha encontrado el comando
+    ' Message.Info(("Error: Comando desconocido") & " (" & orden & ")")
+    ' Return Null
 
 End
 
