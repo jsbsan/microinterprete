@@ -9,7 +9,7 @@
     Expand = True
     Margin = True
     { VBox1 VBox
-      MoveScaled(6,3,16,57)
+      MoveScaled(4,-1,26,63)
       { Label1 Label
         MoveScaled(1,0,12,3)
         Text = ("Comandos")
@@ -18,8 +18,23 @@
         MoveScaled(0,3,14,50)
         Background = &H1FC7FF&
       }
-      { LabelCoordenadas Label
-        MoveScaled(2,54,12,3)
+      { HBox2 HBox
+        MoveScaled(0,53,25,4)
+        { LabelCoordenadas Label
+          MoveScaled(1,1,14,3)
+        }
+        { ButtonCopiaCoordenadas Button
+          MoveScaled(16,0,4,4)
+          Picture = Picture["icon:/22/copy"]
+        }
+      }
+      { ButtonEjemplo1 Button
+        MoveScaled(1,57,12,3)
+        Text = ("Ejemplo 1")
+      }
+      { ButtonEjemplo2 Button
+        MoveScaled(1,60,12,3)
+        Text = ("Ejemplo 2 ")
       }
     }
     { DrawingArea1 DrawingArea

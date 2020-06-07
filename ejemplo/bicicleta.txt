@@ -1,0 +1,4 @@
+definefuncion,doblelinea,x1;y1;x2;y2,linea,x1,y1,x2,y2|linea,x1+3,y1+3,x2+3,y2+3
+definefuncion,bicicleta,x1;y1,colorbrocha,naranja|circulo,x1,y1,100|circulo,x1+300,y1,100|circulo,x1,y1,105|circulo,x1+300,y1,105|circulo,x1,y1,5|circulo,x1+300,y1,5|colorbrocha,azul|usafuncion,doblelinea,x1;y1;x1+50;y1-175|usafuncion,doblelinea,x1+300;y1;x1+145;y1|usafuncion,doblelinea,x1+145;y1;x1+40;y1-125|usafuncion,doblelinea,x1+40;y1-125;x1+200;y1-125|usafuncion,doblelinea,x1+200;y1-125;x1+300;y1|circulo,x1+145,y1,25|circulo,x1+145,y1,27|circulo,x1+55,y1-175,7
+usafuncion,bicicleta,200;400
+usafuncion,bicicleta,750;400

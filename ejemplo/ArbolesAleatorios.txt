@@ -1,0 +1,4 @@
+definefuncion,arbol,x1;y1,colorbrocha,rojo|rectangulo,x1,y1,x1+10,y1-100|colorbrocha,verde|circulo,x1+5,y1-150,50|texto,x1+20,y1-50,10,Arbol
+dimensiona,x,10
+dimensiona,y,10
+repite,10,usafuncion,arbol,150+x;y+150|asigna,y,rand(50)*5+200|asigna,x,rand(100)*10+10
