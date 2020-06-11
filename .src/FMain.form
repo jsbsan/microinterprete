@@ -40,6 +40,7 @@
     { DrawingArea1 DrawingArea
       MoveScaled(36,9,73,35)
       Background = &HFFEFBF&
+      Tracking = True
       Expand = True
     }
   }

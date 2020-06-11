@@ -9,6 +9,7 @@ Public Sub Form_Open()
     Settings.Read(Me)
     ListBoxComandosDisponibles.List = SelectorEstrategias.listaComando()
     Me.Title = "InterPrete-CAD " & "version " & Application.version & " Autor: JsbSan 2020"
+    DrawingArea1.Tracking = True 'para ver elmovimiento del raton si lo muevo por el area de dibujo
 
 End
 
