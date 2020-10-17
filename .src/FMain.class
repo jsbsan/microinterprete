@@ -18,7 +18,7 @@ Public Sub Form_Open()
     Me.Title = "InterPrete-CAD " & "version " & Application.version & " Autor: JsbSan 2020"
     DrawingArea1.Tracking = True 'para ver elmovimiento del raton si lo muevo por el area de dibujo
     LabelEscala.Text = "Escala: " & Format(escala, "0.0%")
-    LabelTraslado.text = "Translado (" & Str(TransladaX) & "," & Str(transladay) & ")"
+    LabelTraslado.text = "Traslado (" & Str(TransladaX) & "," & Str(transladay) & ")"
 
 End
 

@@ -1,0 +1,38 @@
+' Gambas class file
+
+Inherits InterfaceCrearComando
+Private comandotmp As New Insertaimagen
+
+Public Sub guard(valor As String) As Boolean
+
+    If valor = ("insertaimagen") Or valor = ("ins") Then
+        Return True
+    Else
+        Return False
+    Endif
+
+End
+
+Public Sub crearComando(linea As String) As Comando
+
+    Dim palabras As String[]
+
+    palabras = Split(linea, ",") 'caracter separador de datos
+
+    If palabras.count = 0 Then
+        Return Null
+    Else
+        comandotmp = New Insertaimagen
+        comandotmp.datos = palabras
+        comandotmp.tipo = "dibujo"
+        Return comandotmp
+    Endif
+
+End
+
+Public Sub ayuda() As String
+    'devuelve lo ayuda sobre el comando
+
+    Return "Dibuja una imagen en las coordenadas indicadas. Sintaxis: insertaimagen,[coordenada_x],[coordenada_y],[ruta]\n Ejemplo Uso: insertaimagen,100,50,\"/home/minino/hola.png\" -> dibuja una imagen llamada hola.png en la posicion 100, 50"
+
+End

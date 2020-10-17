@@ -1,0 +1,37 @@
+' Gambas class file
+
+Inherits Comando
+
+Private x1 As Integer
+Private y1 As Integer
+Private ruta As String
+
+Public Sub ejecutar() ' dibuja imagen en coordenadas x1, y1, de la ruta definida
+
+    x1 = Eval(Me.datos[0], moduloComun.variables)
+    y1 = Eval(Me.datos[1], moduloComun.variables)
+    ruta = Eval(Me.datos[2], moduloComun.variables)
+
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
+End
+
+Public Sub dibujar()
+
+    Dim imgtmp As Image
+
+    If Exist(ruta) Then
+
+        imgtmp = Picture[ruta].Image
+
+        Paint.DrawImage(imgtmp, x1, y1)
+        Paint.Stroke()
+    Else
+        Message.Error("Error Producido: No encuentro imagen" & "\n" & "Linea: " & Me.datos.Join(","))
+    Endif
+
+Catch
+    Message.Error("Error Producido: " & Error.text & "\n" & "Linea: " & Me.datos.Join(","))
+
+End

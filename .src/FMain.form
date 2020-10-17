@@ -78,7 +78,7 @@
     }
     { DrawingArea1 DrawingArea
       MoveScaled(36,9,73,35)
-      Background = &HFFEFBF&
+      Background = &H000000&
       Tracking = True
       Mouse = Mouse.Cross
       Expand = True
