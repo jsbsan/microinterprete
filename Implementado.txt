@@ -45,4 +45,4 @@ linea,[x1],[y1],[x2],[y2]
 
 rectangulo,[x1],[y1],[x2],[y2]
 
-Se pertimiete poner expresiones en los valores (por ejemplo x+19)
+Se pertimete poner expresiones en los valores (por ejemplo x+19)
