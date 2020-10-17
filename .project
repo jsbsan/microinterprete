@@ -2,7 +2,7 @@
 Title=microinterprete
 Startup=FMain
 Icon=interprete50x50.png
-Version=0.0.9
+Version=0.0.10
 Component=gb.image
 Component=gb.gui
 Component=gb.form

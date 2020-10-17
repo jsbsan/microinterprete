@@ -3,6 +3,13 @@
 Private listaComando As Comando[] 'lista de comandos, de las reglas
 Private SelectorEstrategias As New SwitchStrategyCrearComando
 Private listaElementosDibujar As New Comando[]
+Private escala As Float = 1
+
+Private TransladaX As Float = 0
+Private Transladay As Float = 0
+
+Private inicialX As Float = 0
+Private inicialy As Float = 0
 
 Public Sub Form_Open()
 
@@ -10,6 +17,8 @@ Public Sub Form_Open()
     ListBoxComandosDisponibles.List = SelectorEstrategias.listaComando()
     Me.Title = "InterPrete-CAD " & "version " & Application.version & " Autor: JsbSan 2020"
     DrawingArea1.Tracking = True 'para ver elmovimiento del raton si lo muevo por el area de dibujo
+    LabelEscala.Text = "Escala: " & Format(escala, "0.0%")
+    LabelTraslado.text = "Translado (" & Str(TransladaX) & "," & Str(transladay) & ")"
 
 End
 
@@ -35,16 +44,19 @@ Public Sub ButtonEjecutar_Click()
 
 End
 
-Public Sub SimpleLinea(x1 As Integer, y1 As Integer, x2 As Integer, y2 As Integer)
-
-    Paint.MoveTo(x1, y1)
-    Paint.LineTo(x2, y2)
-
-End
+' Public Sub SimpleLinea(x1 As Integer, y1 As Integer, x2 As Integer, y2 As Integer)
+'
+'     Paint.MoveTo(x1, y1)
+'     Paint.LineTo(x2, y2)
+'
+' End
 
 Public Sub DrawingArea1_Draw()
 
     Dim ctmp As Comando
+
+    Paint.Translate(TransladaX, TransladaY)
+    Paint.Scale(escala, escala)
 
     ' 'lista de comandos graficos a dibujar
     For Each ctmp In listaElementosDibujar
@@ -149,12 +161,24 @@ End
 Public Sub DrawingArea1_MouseMove()
 
     LabelCoordenadas.Text = "(" & Mouse.x & "," & Mouse.y & ")"
+    ButtonEjecutar_Click()
 
 End
 
 Public Sub DrawingArea1_MouseDown()
 
-    LabelCoordenadas.Text = "(" & Mouse.x & "," & Mouse.y & ")"
+    inicialX = Mouse.X
+    inicialy = Mouse.y
+
+End
+
+Public Sub DrawingArea1_MouseUp()
+
+    TransladaX -= (inicialx - Mouse.X)
+    Transladay -= (inicialy - Mouse.y)
+    ButtonEjecutar_Click()
+
+    LabelTraslado.text = "Translado (" & Str(TransladaX) & "," & Str(transladay) & ")"
 
 End
 
@@ -173,5 +197,63 @@ End
 Public Sub ButtonEjemplo2_Click()
 
     TextAreaComandos.text = File.Load("./ejemplo/bicicleta.txt")
+
+End
+
+Public Sub ZoomReiniciar_Click()
+
+    escala = 1
+    LabelEscala.Text = "Escala: " & Format(escala, "0.0%")
+    ButtonEjecutar_Click()
+
+End
+
+Public Sub ZoomReducir_Click()
+
+    escala -= 0.05
+    If escala < 0 Then escala = 0.10
+    LabelEscala.Text = "Escala: " & Format(escala, "0.0%")
+    ButtonEjecutar_Click()
+
+End
+
+Public Sub ZoomMas_Click()
+
+    escala += 0.05
+
+    Labelescala.Text = "Escala: " & Format(escala, "0.0%")
+    ButtonEjecutar_Click()
+
+End
+
+Public Sub DrawingArea1_MouseWheel()
+
+    If Mouse.delta < 0 Then
+        ZoomReducir_Click()
+    Else
+        ZoomMas_Click()
+    Endif
+
+End
+
+Public Sub MenuTranladoInicial_Click()
+
+    TransladaX = 0
+    Transladay = 0
+    ButtonEjecutar_Click()
+
+    LabelTraslado.text = "Translado (" & Str(TransladaX) & "," & Str(transladay) & ")"
+
+End
+
+Public Sub MenuColorFondo_Click()
+
+    If Not Dialog.SelectColor() Then
+        DrawingArea1.Background = Dialog.Color
+    Endif
+
+End
+
+Public Sub HBox1_MouseDown()
 
 End

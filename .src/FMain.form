@@ -4,8 +4,34 @@
   MoveScaled(0,0,145,101)
   Icon = Picture["interprete50x50.png"]
   Arrangement = Arrange.Vertical
+  { MenuZoom Menu
+    Text = ("MenuZoom")
+    { ZoomMas Menu
+      Text = ("Zoom Ampliar")
+      Picture = Picture["icon:/32/zoom-in"]
+    }
+    { ZoomReducir Menu
+      Text = ("Zoom Alejar")
+      Picture = Picture["icon:/32/zoom-out"]
+    }
+    { ZoomReiniciar Menu
+      Text = ("Zoom 100%")
+      Picture = Picture["icon:/32/zoom-normal"]
+    }
+    { MenuTranladoInicial Menu
+      Text = ("TransladoInicial")
+      Picture = Picture["icon:/32/start"]
+    }
+  }
+  { MenuConfiguracion Menu
+    Text = ("MenuConfiguracion")
+    { MenuColorFondo Menu
+      Text = ("Color de Fondo")
+      Picture = Picture["icon:/32/red"]
+    }
+  }
   { HBox1 HBox
-    MoveScaled(3,-1,125,63)
+    MoveScaled(3,-2,125,63)
     Expand = True
     Margin = True
     { VBox1 VBox
@@ -15,8 +41,21 @@
         Text = ("Comandos")
       }
       { ListBoxComandosDisponibles ListBox
-        MoveScaled(0,3,14,50)
+        MoveScaled(0,3,14,37)
         Background = &H1FC7FF&
+      }
+      { HBox4 HBox
+        MoveScaled(0,44,25,4)
+        { LabelTraslado Label
+          MoveScaled(1,1,14,3)
+          AutoResize = True
+        }
+      }
+      { HBox3 HBox
+        MoveScaled(0,48,25,4)
+        { LabelEscala Label
+          MoveScaled(1,1,14,3)
+        }
       }
       { HBox2 HBox
         MoveScaled(0,53,25,4)
@@ -41,7 +80,9 @@
       MoveScaled(36,9,73,35)
       Background = &HFFEFBF&
       Tracking = True
+      Mouse = Mouse.Cross
       Expand = True
+      PopupMenu = "MenuZoom"
     }
   }
   { Panel1 Panel
