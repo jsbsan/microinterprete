@@ -1,9 +1,9 @@
 ---------------------
 Nuevas propiedades
 ---------------------
-Zoom del dibujao reducir, ampliar y poner al 100% (con menus popup)
-Transladar dibujo con precionar el boton del roton y moverlo, y soltarlo
-
+Zoom del dibujao reducir, ampliar y poner al 100% (con menus popup) 
+Transladar dibujo con precionar el boton del roton y moverlo, y soltarlo.
+Configurador del color de fondo del dibujo.
 
 ---------------
 A añadir:
