@@ -31,11 +31,11 @@
     }
   }
   { HBox1 HBox
-    MoveScaled(3,-2,125,63)
+    MoveScaled(3,-2,125,65)
     Expand = True
     Margin = True
     { VBox1 VBox
-      MoveScaled(4,-1,26,63)
+      MoveScaled(1,-4,26,73)
       { Label1 Label
         MoveScaled(1,0,12,3)
         Text = ("Comandos")
@@ -45,20 +45,20 @@
         Background = &H1FC7FF&
       }
       { HBox4 HBox
-        MoveScaled(0,44,25,4)
+        MoveScaled(1,41,25,4)
         { LabelTraslado Label
           MoveScaled(1,1,14,3)
           AutoResize = True
         }
       }
       { HBox3 HBox
-        MoveScaled(0,48,25,4)
+        MoveScaled(1,45,25,4)
         { LabelEscala Label
           MoveScaled(1,1,14,3)
         }
       }
       { HBox2 HBox
-        MoveScaled(0,53,25,4)
+        MoveScaled(1,50,25,4)
         { LabelCoordenadas Label
           MoveScaled(1,1,14,3)
         }
@@ -68,17 +68,24 @@
         }
       }
       { ButtonEjemplo1 Button
-        MoveScaled(1,57,12,3)
-        Text = ("Ejemplo 1")
+        MoveScaled(1,55,25,3)
+        Font = Font["-2"]
+        Text = ("Ejemplo 1. Arboles Aleatorios")
       }
       { ButtonEjemplo2 Button
-        MoveScaled(1,60,12,3)
-        Text = ("Ejemplo 2 ")
+        MoveScaled(1,58,24,3)
+        Font = Font["-2"]
+        Text = ("Ejemplo 2 Bicicletas")
+      }
+      { ButtonEjemplo3 Button
+        MoveScaled(1,61,24,3)
+        Font = Font["-2"]
+        Text = ("Ejemplo 3 Cajetin A3")
       }
     }
     { DrawingArea1 DrawingArea
       MoveScaled(36,9,73,35)
-      Background = &H000000&
+      Background = &HC0C0C0&
       Tracking = True
       Mouse = Mouse.Cross
       Expand = True
@@ -88,11 +95,11 @@
   { Panel1 Panel
     MoveScaled(1,63,144,38)
     { ButtonRecuperaBak Button
-      MoveScaled(36,1,16,3)
+      MoveScaled(33,1,16,3)
       Text = ("recuperacion .bak")
     }
     { ButtonTutorial Button
-      MoveScaled(83,0,5,5)
+      MoveScaled(89,0,5,5)
       ToolTip = ("ayuda")
       Picture = Picture["icon:/22/help"]
     }
@@ -101,13 +108,13 @@
       Text = ("iconos por SRIP")
     }
     { ButtonGuardar Button
-      MoveScaled(65,0,12,5)
+      MoveScaled(60,0,12,5)
       ToolTip = ("guardar lista de comandos escritor")
       Text = ("Guardar")
       Picture = Picture["icon:/22/save"]
     }
     { ButtonAbrir Button
-      MoveScaled(53,0,10,5)
+      MoveScaled(49,0,10,5)
       Text = ("Abrir")
       Picture = Picture["icon:/22/open"]
     }
@@ -116,7 +123,7 @@
       Text = ("Consola de Comandos")
     }
     { Label2 Label
-      MoveScaled(90,1,19,3)
+      MoveScaled(95,1,19,3)
       Text = ("Salida de Consola")
     }
     { TextAreaAyuda TextArea
@@ -131,7 +138,7 @@
       Wrap = True
     }
     { ButtonEjecutar Button
-      MoveScaled(21,0,14,5)
+      MoveScaled(21,0,12,5)
       ToolTip = ("corre la lista de comandos introducidas")
       Text = ("Ejecutar")
       Picture = Picture["ejecutar.png"]
@@ -139,6 +146,12 @@
     { TextAreaComandos TextArea
       MoveScaled(0,5,88,20)
       Wrap = True
+    }
+    { ButtonGuadarImagen Button
+      MoveScaled(72,0,17,5)
+      Font = Font["-2"]
+      Text = ("Guardar Imagen")
+      Picture = Picture["icon:/22/screen"]
     }
   }
 }

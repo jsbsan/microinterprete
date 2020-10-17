@@ -6,6 +6,7 @@ Version=0.0.10
 Component=gb.image
 Component=gb.gui
 Component=gb.form
+Component=gb.desktop
 Component=gb.settings
 Description="miniinterprete a bases de reglas. Patron Comando\nminiCad"
 Authors="jsbsan"

@@ -65,6 +65,28 @@ Public Sub DrawingArea1_Draw()
 
 End
 
+Public Sub ImagenResfresh()
+
+    Dim ctmp As Comando
+    Dim imgtmp As Image
+
+    imgtmp = New Image(4962, 3508, Color.White)
+
+    Paint.Begin(imgtmp)
+    Paint.Translate(TransladaX, TransladaY)
+    Paint.Scale(escala, escala)
+
+    ' 'lista de comandos graficos a dibujar
+    For Each ctmp In listaElementosDibujar
+        ctmp.dibujar()
+    Next
+    Paint.End
+
+    imgtmp.Save("/tmp/cad.png")
+    Desktop.Open("/tmp/cad.png")
+
+End
+
 Public Sub analiza(codigo As String)
 
     Dim comandotmp As New Comando
@@ -254,6 +276,49 @@ Public Sub MenuColorFondo_Click()
 
 End
 
-Public Sub HBox1_MouseDown()
+Public Sub ButtonGuadarImagen_Click()
+
+    Dim codigo As String
+    Dim escalaactual As Float
+    Dim antiguaX As Float
+    Dim antiguay As Float
+
+    Me.mouse = Mouse.wait
+    Wait 0.01
+    TextAreaConsola.text = ""
+
+    escalaactual = escala
+    antiguax = TransladaX
+    antiguay = Transladay
+
+    escala = 1
+    TransladaX = 0
+    Transladay = 0
+
+    'lista de todas las ordenes(de dibujo,y de instruciones bucle)
+    listaComando = New Comando[]
+
+    listaElementosDibujar = New Comando[]
+    'leer el textarea y sacar las ordenes
+
+    codigo = TextAreaComandos.text
+
+    'antes de ejecutar guarda lo que va a ejecutar
+    file.Save("/tmp/codigo.bak", codigo)
+
+    analiza(codigo)
+    Me.mouse = Mouse.Default
+    Wait 0.01
+    ImagenResfresh()
+
+    escala = escalaactual
+    TransladaX = antiguax
+    Transladay = antiguay
+
+End
+
+Public Sub ButtonEjemplo3_Click()
+
+    TextAreaComandos.text = File.Load("./ejemplo/a3.txt")
 
 End
