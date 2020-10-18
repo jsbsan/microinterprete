@@ -415,3 +415,23 @@ Public Sub MenuAbrirCodigo_Click()
     Endif
 
 End
+
+Public Sub ValueBoxMM_KeyPress()
+
+    '  If Key.code = Key.enter Or Key.code = Key.Return Then
+
+    'a3 ->  297 x 420 milimetros
+    'ppp -> 3508 x 4962
+
+    ValueBoxPP.Value = ValueBoxMM.value * 11.814 ' regla de 3: si 4200 mm son 4962 ppp, valor mm es x 4962 / 4200 = valor pp
+    ' Endif
+
+End
+
+Public Sub Panel1_MouseDown()
+
+End
+
+Public Sub ValueBoxMM_MouseDown()
+
+End
