@@ -1,21 +1,23 @@
 ---------------------
 Nuevas propiedades
 ---------------------
-Zoom del dibujao reducir, ampliar y poner al 100% (con menus popup) 
+Zoom del dibujao reducir, ampliar y poner al 100% (con menus popup)
 Transladar dibujo con precionar el boton del roton y moverlo, y soltarlo.
 Configurador del color de fondo del dibujo.
+guardar imagen generada  en svg y png
 
 ---------------
 A añadir:
 ----------------
 tipos de letra
-imagenes
 ancho linea
-escala
+escala -> ok
 rotar
 scp 'sistema de coordenadas
-guardar imagen generada
 
+Sistema para trabajar mediante consola y parametros
+
+Carga de ejemplos dinaminatmente en un submenu
 ------------------------
 Programa
 ------------------------

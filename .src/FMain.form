@@ -19,7 +19,7 @@
       Picture = Picture["icon:/32/zoom-normal"]
     }
     { MenuTranladoInicial Menu
-      Text = ("TransladoInicial")
+      Text = ("Translado  a Inicial")
       Picture = Picture["icon:/32/start"]
     }
   }
@@ -30,7 +30,7 @@
       Picture = Picture["icon:/32/red"]
     }
   }
-  { MenuGuardar Menu
+  { MenuArchivo Menu
     Text = ("Archivo")
     { MenuAbrirCodigo Menu
       Text = ("Abrir fichero de  Código")
@@ -49,6 +49,9 @@
       Text = ("Guardar como .svg")
       Picture = Picture["iconos/variante-de-formato-de-archivo-svg.png"]
     }
+  }
+  { MenuEjemplos Menu
+    Text = ("Ejemplos")
   }
   { HBox1 HBox
     MoveScaled(3,-2,125,65)
@@ -86,21 +89,6 @@
           MoveScaled(16,0,4,4)
           Picture = Picture["icon:/22/copy"]
         }
-      }
-      { ButtonEjemplo1 Button
-        MoveScaled(1,55,25,3)
-        Font = Font["-2"]
-        Text = ("Ejemplo 1. Arboles Aleatorios")
-      }
-      { ButtonEjemplo2 Button
-        MoveScaled(1,58,24,3)
-        Font = Font["-2"]
-        Text = ("Ejemplo 2 Bicicletas")
-      }
-      { ButtonEjemplo3 Button
-        MoveScaled(1,61,24,3)
-        Font = Font["-2"]
-        Text = ("Ejemplo 3 Cajetin A3")
       }
     }
     { DrawingArea1 DrawingArea

@@ -20,6 +20,8 @@ Public Sub Form_Open()
     LabelEscala.Text = "Escala: " & Format(escala, "0.0%")
     LabelTraslado.text = "Traslado (" & Str(TransladaX) & "," & Str(transladay) & ")"
 
+    cargaEjemplos()
+
 End
 
 Public Sub ButtonEjecutar_Click()
@@ -228,18 +230,6 @@ Public Sub ButtonCopiaCoordenadas_Click()
 
 End
 
-Public Sub ButtonEjemplo1_Click()
-
-    TextAreaComandos.text = File.Load("./ejemplo/ArbolesAleatorios.txt")
-
-End
-
-Public Sub ButtonEjemplo2_Click()
-
-    TextAreaComandos.text = File.Load("./ejemplo/bicicleta.txt")
-
-End
-
 Public Sub ZoomReiniciar_Click()
 
     escala = 1
@@ -382,12 +372,6 @@ Public Sub GuardarComoSVG()
 
 End
 
-Public Sub ButtonEjemplo3_Click()
-
-    TextAreaComandos.text = File.Load("./ejemplo/a3.txt")
-
-End
-
 Public Sub MenuGuardarcomoPNG_Click()
 
     GuardarComoPNG()
@@ -428,10 +412,20 @@ Public Sub ValueBoxMM_KeyPress()
 
 End
 
-Public Sub Panel1_MouseDown()
+Public Sub cargaEjemplos()
+
+    Dim mtmp As Menu
+    Dim file As String
+
+    For Each file In Dir("./ejemplo", "*.txt").Sort()
+        mtmp = New Menu(menuejemplos) As "obs"
+        mtmp.Caption = File
+    Next
 
 End
 
-Public Sub ValueBoxMM_MouseDown()
+Public Sub obs_click()
+
+    TextAreaComandos.text = File.Load("./ejemplo/" & Last.caption)
 
 End
