@@ -2,7 +2,7 @@
 
 { Form Form
   MoveScaled(0,0,145,101)
-  Icon = Picture["interprete50x50.png"]
+  Icon = Picture["iconos/simbolo-de-formato-de-archivo-cad.png"]
   Arrangement = Arrange.Vertical
   { MenuZoom Menu
     Text = ("MenuZoom")
@@ -28,6 +28,26 @@
     { MenuColorFondo Menu
       Text = ("Color de Fondo")
       Picture = Picture["icon:/32/red"]
+    }
+  }
+  { MenuGuardar Menu
+    Text = ("Archivo")
+    { MenuAbrirCodigo Menu
+      Text = ("Abrir fichero de  Código")
+    }
+    { Menu2 Menu
+    }
+    { MenuGuardarCodigo Menu
+      Text = ("Guardar Código")
+      Picture = Picture["iconos/simbolo-de-formato-de-archivo-cad.png"]
+    }
+    { MenuGuardarcomoPNG Menu
+      Text = ("Guardar como .png")
+      Picture = Picture["icon:/22/image"]
+    }
+    { MenuGuardarComoSVG Menu
+      Text = ("Guardar como .svg")
+      Picture = Picture["iconos/variante-de-formato-de-archivo-svg.png"]
     }
   }
   { HBox1 HBox
@@ -95,7 +115,7 @@
   { Panel1 Panel
     MoveScaled(1,63,144,38)
     { ButtonRecuperaBak Button
-      MoveScaled(33,1,16,3)
+      MoveScaled(40,0,16,5)
       Text = ("recuperacion .bak")
     }
     { ButtonTutorial Button
@@ -106,17 +126,6 @@
     { URLLabel1 URLLabel
       MoveScaled(115,1,27,2)
       Text = ("iconos por SRIP")
-    }
-    { ButtonGuardar Button
-      MoveScaled(60,0,12,5)
-      ToolTip = ("guardar lista de comandos escritor")
-      Text = ("Guardar")
-      Picture = Picture["icon:/22/save"]
-    }
-    { ButtonAbrir Button
-      MoveScaled(49,0,10,5)
-      Text = ("Abrir")
-      Picture = Picture["icon:/22/open"]
     }
     { Label3 Label
       MoveScaled(0,1,23,3)
@@ -146,12 +155,6 @@
     { TextAreaComandos TextArea
       MoveScaled(0,5,88,20)
       Wrap = True
-    }
-    { ButtonGuadarImagen Button
-      MoveScaled(72,0,17,5)
-      Font = Font["-2"]
-      Text = ("Guardar Imagen")
-      Picture = Picture["icon:/22/screen"]
     }
   }
 }

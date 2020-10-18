@@ -65,6 +65,30 @@ Public Sub DrawingArea1_Draw()
 
 End
 
+Public Sub SVGRefresh()
+
+    Dim ctmp As Comando
+    Dim svgtmp As SvgImage
+
+    If Exist("/tmp/cad.svg") Then Kill "/tmp/cad.svg" 'borrado si existe el fichero
+
+    svgtmp = New SvgImage(4962, 3508)
+
+    Paint.Begin(svgtmp)
+    Paint.Translate(TransladaX, TransladaY)
+    Paint.Scale(escala, escala)
+
+    ' 'lista de comandos graficos a dibujar
+    For Each ctmp In listaElementosDibujar
+        ctmp.dibujar()
+    Next
+    Paint.End
+
+    svgtmp.Save("/tmp/cad.svg")
+    Desktop.Open("/tmp/cad.svg")
+
+End
+
 Public Sub ImagenResfresh()
 
     Dim ctmp As Comando
@@ -148,15 +172,9 @@ End
 
 Public Sub ButtonAbrir_Click()
 
-    If Dialog.OpenFile() Then
-        Return 'se cancelo la operacion
-    Else
-        TextAreaComandos.text = File.Load(Dialog.Path)
-    Endif
-
 End
 
-Public Sub ButtonGuardar_Click()
+Public Sub GuardarCodigo()
 
     If Dialog.SaveFile() Then
 
@@ -278,6 +296,12 @@ End
 
 Public Sub ButtonGuadarImagen_Click()
 
+    GuardarComoPNG()
+
+End
+
+Public Sub GuardarComoPNG()
+
     Dim codigo As String
     Dim escalaactual As Float
     Dim antiguaX As Float
@@ -317,8 +341,77 @@ Public Sub ButtonGuadarImagen_Click()
 
 End
 
+Public Sub GuardarComoSVG()
+
+    Dim codigo As String
+    Dim escalaactual As Float
+    Dim antiguaX As Float
+    Dim antiguay As Float
+
+    Me.mouse = Mouse.wait
+    Wait 0.01
+    TextAreaConsola.text = ""
+
+    escalaactual = escala
+    antiguax = TransladaX
+    antiguay = Transladay
+
+    escala = 1
+    TransladaX = 0
+    Transladay = 0
+
+    'lista de todas las ordenes(de dibujo,y de instruciones bucle)
+    listaComando = New Comando[]
+
+    listaElementosDibujar = New Comando[]
+    'leer el textarea y sacar las ordenes
+
+    codigo = TextAreaComandos.text
+
+    'antes de ejecutar guarda lo que va a ejecutar
+    file.Save("/tmp/codigo.bak", codigo)
+
+    analiza(codigo)
+    Me.mouse = Mouse.Default
+    Wait 0.01
+    SVGRefresh()
+
+    escala = escalaactual
+    TransladaX = antiguax
+    Transladay = antiguay
+
+End
+
 Public Sub ButtonEjemplo3_Click()
 
     TextAreaComandos.text = File.Load("./ejemplo/a3.txt")
+
+End
+
+Public Sub MenuGuardarcomoPNG_Click()
+
+    GuardarComoPNG()
+
+End
+
+Public Sub MenuGuardarComoSVG_Click()
+
+    GuardarComoSVG()
+
+End
+
+Public Sub MenuGuardarCodigo_Click()
+
+    GuardarCodigo()
+
+End
+
+Public Sub MenuAbrirCodigo_Click()
+
+    If Dialog.OpenFile() Then
+        Return 'se cancelo la operacion
+    Else
+        TextAreaComandos.text = File.Load(Dialog.Path)
+    Endif
 
 End
